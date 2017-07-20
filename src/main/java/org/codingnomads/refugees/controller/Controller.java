@@ -17,19 +17,6 @@ public class Controller {
         DBAccess db = new DBAccess();
 
         System.out.println("Starting application...");
-        // confirming that that a parameter has been set before running the first query
-        if(args.length > 0) {
-
-            //writes the user argument to the country variable
-            country = args[0];
-
-            //reading the query from the getCustomQuery method and the user
-            ResultSet resultsOne = db.readDataBase(getCustomQuery(country));
-
-            //populating the ArrayList with the queryOneToPojos
-            ArrayList<QueriesPOJO> finalOne = db.queryOneToPojos(resultsOne);
-            System.out.println("The size of the ArrayList is " + finalOne.size());
-        }
 
         // you need to manually change the populate boolean if you want to repopulate the databases
         if(populate) {
@@ -45,6 +32,20 @@ public class Controller {
             boolean success2 = db.writeToRefugeesByYearCountryDB(refugees);
         } else
             System.out.println("Skipping database population.");
+
+        // confirming that that a parameter has been set before running the first query
+        if(args.length > 0) {
+
+            //writes the user argument to the country variable
+            country = args[0];
+
+            //reading the query from the getCustomQuery method and the user
+            ResultSet resultsOne = db.readDataBase(getCustomQuery(country));
+
+            //populating the ArrayList with the queryOneToPojos
+            ArrayList<QueriesPOJO> finalOne = db.queryOneToPojos(resultsOne);
+            System.out.println("The size of the ArrayList is " + finalOne.size());
+        }
 
         //reading the query from the getQueryTwo method
         ResultSet resultsTwo = db.readDataBase(getQueryTwo());

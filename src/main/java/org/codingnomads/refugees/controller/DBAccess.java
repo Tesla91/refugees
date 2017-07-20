@@ -23,7 +23,7 @@ public class DBAccess {
 
             // using PreparedStatements to set the names of the columns that will be populated in the database
             preparedStatement = connection
-                    .prepareStatement("insert into worldbank_indicators " +
+                    .prepareStatement("insert into worldbank.worldbank_indicators " +
                             "(series_name, series_code, country_name, country_code, YR2000, YR2001, YR2002, YR2003, YR2004, " +
                             "YR2005, YR2006, YR2007, YR2008, YR2009, YR2010, YR2011, YR2012, YR2013, YR2014, YR2015) " +
                             "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
@@ -69,8 +69,8 @@ public class DBAccess {
 
             // using PreparedStatements to set the names of the columns that will be populated in the database
             preparedStatement = connection
-                    .prepareStatement("insert into refugees_all " +
-                            "(year, asylum_country, origin_country, refugees, asylum_seekers, returned_refugees, " +
+                    .prepareStatement("insert into immigrants.refugees_all " +
+                            "(yr, asylum_country, origin_country, refugees, asylum_seekers, returned_refugees, " +
                             "idps, returned_idps, stateless_persons, others_of_concern, total_population) " +
                             "values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 

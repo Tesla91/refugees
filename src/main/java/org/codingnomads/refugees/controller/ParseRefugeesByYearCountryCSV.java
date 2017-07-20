@@ -13,12 +13,6 @@ import java.util.ArrayList;
  */
 public class ParseRefugeesByYearCountryCSV {
 
-    public static void main(String[] args) {
-
-
-
-    }
-
     public static ArrayList< RefugeesByYearCountry> parseFile(){
         System.out.println("parseFile() called...");
 
