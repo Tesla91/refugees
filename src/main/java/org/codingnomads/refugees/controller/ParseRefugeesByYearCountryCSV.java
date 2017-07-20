@@ -11,16 +11,11 @@ import java.util.ArrayList;
  * https://data.world/nrippner/refugee-host-nations
  * Created by nicola on 7/18/17.
  */
-public class ParseCSV {
+public class ParseRefugeesByYearCountryCSV {
 
     public static void main(String[] args) {
 
-        System.out.println("Starting application...");
-        ArrayList<RefugeesByYearCountry> refugees = parseFile();
-        System.out.println("Parsing complete...");
-        System.out.println("Calling");
-        ConvertToDB db = new ConvertToDB();
-        boolean success = db.writeToDB(refugees);
+
 
     }
 
@@ -78,7 +73,7 @@ public class ParseCSV {
                     ref.setOthers_of_concern(data[10].equalsIgnoreCase("") ? 0 : (Double.parseDouble(data[10])));
                     ref.setTotal_population(data[11].equalsIgnoreCase("") ? 0 : (Double.parseDouble(data[11])));
                 } catch(IndexOutOfBoundsException e){
-                    // if exception is caught set all temaining values to default of 0
+                    // if exception is caught set all remaining values to default of zero
                     ref.setRefugees(0);
                     ref.setAsylum_seekers(0);
                     ref.setReturned_refugees(0);
